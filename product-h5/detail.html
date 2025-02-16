@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品详情</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>产品详情</h1>
+    </header>
+
+    <!-- 详情页内容容器 -->
+    <div class="product-detail" id="productDetail"></div>
+
+    <!-- 返回按钮 -->
+    <button onclick="window.history.back()" class="back-button">返回列表</button>
+
+    <!-- JavaScript 必须放在 script 标签内 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            const products = {
+                '1': {
+                    name: '同仁堂美白补水面膜',
+                    price: '$16.00',
+                    image: './images/product1.jpg',
+                    description: '深层补水，提亮肤色，含天然植物精华，适合所有肤质。'
+                },
+                '2': {
+                    name: '德国光感美肌面膜',
+                    price: '$98.00',
+                    image: './images/product2.jpg',
+                    description: '抗皱紧致，促进胶原蛋白生成，欧洲进口原料。'
+                }
+            };
+
+            const product = products[productId];
+            const detailContainer = document.getElementById('productDetail');
+
+            if (product) {
+                detailContainer.innerHTML = `
+                    <img src="${product.image}" class="detail-image">
+                    <h2 class="detail-name">${product.name}</h2>
+                    <p class="detail-price">价格：${product.price}</p>
+                    <p class="detail-description">${product.description}</p>
+                `;
+            } else {
+                detailContainer.innerHTML = `
+                    <p class="error">产品不存在！</p>
+                    <a href="./index.html" class="back-link">返回首页</a>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

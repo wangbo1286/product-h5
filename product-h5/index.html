@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的产品展示</title>
+    <title>KAKIFO美业产品展示</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,24 +12,31 @@
     </header>
 
     <!-- 产品列表 -->
-    <div class="product-list">
-        <!-- 产品1 -->
-        <div class="product-item">
-            <img src="images/product1.jpg" alt="产品1" class="product-image">
-            <h3 class="product-name">同仁堂美白补水面膜</h3>
-            <p class="product-price">建议零售价$16.00</p>
-            <button class="buy-button">查看详情</button>
-        </div>
-
-        <!-- 产品2 -->
-        <div class="product-item">
-            <img src="images/product2.jpg" alt="产品2" class="product-image">
-            <h3 class="product-name">德国光感美肌面膜</h3>
-            <p class="product-price">建议零售价$98.00</p>
-            <button class="buy-button">查看详情</button>
-        </div>
+<div class="product-list">
+    <!-- 产品1 -->
+    <div class="product-item">
+        <img src="images/product1.jpg" alt="产品1" class="product-image">
+        <h3 class="product-name">同仁堂美白补水面膜</h3>
+        <p class="product-price">建议售价$16.00</p>
+        <!-- 新增查看详情按钮 -->
+        <button class="detail-button" onclick="goToDetail('1')">查看详情</button>
     </div>
 
-    <script src="js/script.js"></script>
+    <!-- 产品2 -->
+    <div class="product-item">
+        <img src="images/product2.jpg" alt="产品2" class="product-image">
+        <h3 class="product-name">德国光感美肌面膜</h3>
+        <p class="product-price">建议售价$98.00</p>
+        <!-- 新增查看详情按钮 -->
+        <button class="detail-button" onclick="goToDetail('2')">查看详情</button>
+    </div>
+</div>
+
+    <!-- 跳转函数必须放在 body 内部 -->
+    <script>
+        function goToDetail(productId) {
+            window.location.href = `detail.html?id=${productId}`;
+        }
+    </script>
 </body>
 </html>
